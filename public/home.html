@@ -1,0 +1,82 @@
+ <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Star Wars - Express</title>
+      <!-- Latest compiled and minified CSS & JS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     
+    
+    </head>
+
+    <body>
+    
+      <div class="container">
+        <div class="jumbotron ">
+          <h1 class= "ctr">Friends by Nature</h1>
+          <h3 class= "ctr">The ultimate compatibility app!</h3>
+          <hr>
+          <a href="/public/home.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>Friends</button></a>
+        </div>
+
+        <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Friend Search</strong></h3>
+                  </div>
+                  <div class="panel-body">
+                    <input type="text" id="friend-search" class="form-control">
+                    <br>
+                    <div class="text-right">
+                      <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="fa fa-search"></span> Search For Your Friends.</button>
+        
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Friend's Information</strong></h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="well">
+                      <h2 id="name"></h2>
+                      <div id="stats">
+                        <h3><strong>photo</strong> <span id="photoholder"></span></h3>
+                        
+                        <h3><strong>Score:</strong> <span id="scores"></span></h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <script type="text/javascript">
+                $("#search-btn").on("click", function() {
+                  var searchedfriend = $("#friend-search").val().trim();
+            
+                  // Using a RegEx Pattern to remove spaces from searchedCharacter
+                  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+                  searchedCharacter = searchedFriend.replace(/\s+/g, "").toLowerCase();
+            
+                  $.get("/app/data/friends/" + searchedFriend, function(data) {
+                    console.log(data);
+                    if (data) {
+                      $("#stats").show();
+                      $("#name").text(data.name);
+                      $("#photoholder").text("<img href =" + data.photo + ">");
+                        $("#scores").text("<li> " + data.scores + "</li>");
+                    }
+                    else {
+                      $("#name").text("Cant fiond that friend ");
+                      $("#stats").hide();
+                    }
+                  });
+                });
+              </script>
+
+            </body>
+            </html>
