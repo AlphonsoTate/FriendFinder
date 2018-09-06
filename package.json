@@ -1,0 +1,35 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "\"helps find friends\"",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "env": "^0.0.2",
+    "express": "^4.16.3",
+    "http": "^0.0.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phenomphons/FriendFinder.git"
+  },
+  "keywords": [
+    "node",
+    "server.js"
+  ],
+  "author": "PhenomPhons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phenomphons/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/Phenomphons/FriendFinder#readme"
+}
